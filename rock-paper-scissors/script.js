@@ -5,7 +5,13 @@ const possibleChoices = document.querySelectorAll("button");
 
 let userTally;
 
+function generateRandom () {
+    const randomNumber = Math.floor(Math.random() * possibleChoices.length);
+    console.log(randomNumber);
+}
+
 possibleChoices.forEach(choice => choice.addEventListener('click', (e) => {
     userTally = e.target.id;
     myChoice.innerHTML = userTally;
+    generateRandom();
 }))
