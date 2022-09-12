@@ -6,13 +6,14 @@ const possibleChoices = document.querySelectorAll("button");
 let userTally;
 let computerTally;
 
-function generateRandom () {
+function generateRandom() {
     const randomNumber = Math.floor(Math.random() * possibleChoices.length);
 
     if (randomNumber === 0) computerTally = "rock";
     else if (randomNumber === 1) computerTally = "paper";
     else computerTally = "scissors";
 
+    computerChoice.innerHTML = computerTally;
 }
 
 possibleChoices.forEach(choice => choice.addEventListener('click', (e) => {
@@ -20,5 +21,4 @@ possibleChoices.forEach(choice => choice.addEventListener('click', (e) => {
     myChoice.innerHTML = userTally;
     generateRandom();
 
-   
 }))
