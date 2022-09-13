@@ -1,4 +1,4 @@
-const imageArray = [
+const cardArray = [
     {
         name: 'apple',
         img: 'images/apple.svg',
@@ -59,3 +59,5 @@ const imageArray = [
         img: 'images/plum.svg',
     },
 ]
+
+console.log(cardArray);
