@@ -71,6 +71,7 @@ function createBoard() {
         card.setAttribute('data-id', i)
         console.log(card, i);
         gridDisplay.append(card);
+
     }
 }
 
