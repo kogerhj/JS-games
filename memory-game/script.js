@@ -30,12 +30,32 @@ const imageArray = [
     },
 
     {
-        name: 'question',
-        img: 'images/question.svg',
+        name: 'apple',
+        img: 'images/apple.svg',
     },
 
     {
-        name: 'white',
-        img: 'images/white.svg',
+        name: 'banana',
+        img: 'images/banana.svg',
+    },
+
+    {
+        name: 'cantaloupe',
+        img: 'images/cantaloupe.svg',
+    },
+
+    {
+        name: 'citron-citrus',
+        img: 'images/citron-citrus.svg',
+    },
+
+    {
+        name: 'pear',
+        img: 'images/pear.svg',
+    },
+
+    {
+        name: 'plum',
+        img: 'images/plum.svg',
     },
 ]
