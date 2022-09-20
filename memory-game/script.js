@@ -84,14 +84,15 @@ function checkMatch() {
 
     if(cardsChosen[0] === cardsChosen[1]) {
         alert("You found a match!")
-        cards[cardOneId].setAttribute('src', 'images/white/svg')
-        cards[cardTwoId].setAttribute('src', 'images/white/svg')
+        cards[cardOneId].setAttribute('src', 'images/white.svg')
+        cards[cardTwoId].setAttribute('src', 'images/white.svg')
         cards[cardOneId].removeEventListener('click', flipCard)
         cards[cardTwoId].removeEventListener('click', flipCard)
         numMatches.push(cardsChosen);
     } else {
         cards[cardOneId].setAttribute('src', 'images/question-mark.png')
         cards[cardTwoId].setAttribute('src', 'images/question-mark.png')
+        alert("Sorry, try again")
     }
     cardsChosen = [];
     cardsChosenIds = [];
