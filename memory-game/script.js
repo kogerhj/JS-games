@@ -64,6 +64,8 @@ cardArray.sort(() => 0.5 - Math.random());
  
 const gridDisplay = document.querySelector('#grid');
 
+const resultDisplay = document.querySelector("#result");
+
 let cardsChosen = [];
 
 let cardsChosenIds = [];
@@ -89,13 +91,21 @@ function checkMatch() {
         cards[cardOneId].removeEventListener('click', flipCard)
         cards[cardTwoId].removeEventListener('click', flipCard)
         numMatches.push(cardsChosen);
+
+
     } else {
         cards[cardOneId].setAttribute('src', 'images/question-mark.png')
         cards[cardTwoId].setAttribute('src', 'images/question-mark.png')
         alert("Sorry, try again")
     }
+
     cardsChosen = [];
     cardsChosenIds = [];
+    resultDisplay.innerHTML = numMatches.length;
+
+    if(numMatches.length === cardArray.length/2) {
+        resultDisplay.innerHTML = "You found all matches!"
+    }
 }
 
 function flipCard() {
