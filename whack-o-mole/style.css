@@ -1,0 +1,18 @@
+*, ::after, ::before{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.grid {
+    display: flex;
+    flex-wrap: wrap;
+    width: 600px;
+    height: 600px;
+}
+
+.square {
+    height: 200px;
+    width: 200px;
+    border: solid 1px black;
+}
