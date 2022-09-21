@@ -6,7 +6,7 @@
 }
 
 .grid {
-    transform: translate(50%, 20%);
+    transform: translate(60%, 20%);
     width: 600px;
     height: 300px;
     border: solid black 1px;

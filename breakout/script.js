@@ -1,6 +1,6 @@
 const grid = document.querySelector('.grid');
 
-const userStart = [230, 10];
+const userStart = [250, 10];
 
 let currentPosition = userStart;
 
@@ -80,3 +80,4 @@ function moveUser(e) {
 }
 
 document.addEventListener('keydown', moveUser);
+
