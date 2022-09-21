@@ -1,5 +1,9 @@
 const grid = document.querySelector('.grid');
 
+const userStart =[230, 10];
+
+let currentPosition = userStart;
+
 const blockHeight = 20;
 const blockWidth = 100;
 
@@ -47,3 +51,15 @@ function addBlocks() {
 }
 
 addBlocks();
+
+//add user
+
+const user = document.createElement('div');
+
+user.classList.add('user');
+
+user.style.left = currentPosition[0] + "px";
+
+user.style.bottom = currentPosition[1] + "px";
+
+grid.appendChild(user);
