@@ -17,4 +17,10 @@ function randomSquare() {
     randomPosition.classList.add('mole');
 }
 
-randomSquare();
+function moveMole() {
+    let timerId = null;
+    timerId = setInterval(randomSquare, 750);
+
+}
+
+moveMole();
