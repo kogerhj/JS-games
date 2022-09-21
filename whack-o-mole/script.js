@@ -6,7 +6,7 @@ const squares = document.querySelectorAll(".square");
 
 const mole = document.querySelector(".mole");
 
-let currentTime = 5;
+let currentTime = 60;
 
 let result = 0;
 
