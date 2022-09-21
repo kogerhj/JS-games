@@ -2,6 +2,11 @@ const block = document.createElement('div');
 
 const grid = document.querySelector('.grid');
 
-block.classList.add('block');
+function addBlock() {
+    block.classList.add('block');
+    block.style.left = '100x';
+    block.style.bottom = '50px';
+    grid.appendChild(block);
+}
 
-grid.appendChild(block);
+addBlock();
