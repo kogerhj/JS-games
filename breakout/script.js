@@ -8,20 +8,28 @@ const blockWidth = 100;
 //create Block
 class Block {
     constructor(xAxis, yAxis) {
-        this.bottomLeft = [xAxis, yAxis];
-        this.bottomRight = [xAxis + blockWidth, yAxis];
-        this.topLeft = [xAxis, yAxis + blockHeight];
-        this.topRight = [xAxis + blockWidth, yAxis + blockHeight];
+        this.bottomLeft = [xAxis, yAxis]
+        this.bottomRight = [xAxis + blockWidth, yAxis]
+        this.topLeft = [xAxis, yAxis + blockHeight]
+        this.topRight = [xAxis + blockWidth, yAxis + blockHeight]
     }
 }
 
+//all my blocks
+const blocks = [
+    new Block(10, 270)
+]
 
-//add block to grid
-function addBlock() {
-    block.classList.add('block');
-    block.style.left = '100px';
-    block.style.bottom = '50px';
-    grid.appendChild(block);
+
+// add all blocks to grid
+function addBlocks() {
+    for (let i = 0; i < blocks.length; i++) {
+        block.classList.add('block')
+        block.style.left = blocks[i].bottomLeft[0] + 'px'
+        block.style.bottom = blocks[i].bottomLeft[1] + 'px'
+        grid.appendChild(block)
+
+    }
 }
 
-addBlock();
+addBlocks();
