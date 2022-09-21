@@ -6,9 +6,13 @@ const squares = document.querySelectorAll(".square");
 
 const mole = document.querySelector(".mole");
 
+let currentTime = 5;
+
 let result = 0;
 
 let hitPosition;
+
+let timerId = null;
 
 function randomSquare() {
     squares.forEach(square => {
@@ -21,7 +25,6 @@ function randomSquare() {
 }
 
 function moveMole() {
-    let timerId = null;
     timerId = setInterval(randomSquare, 750);
 
 }
@@ -38,4 +41,15 @@ squares.forEach(square => {
 
 moveMole();
 
-console.log(result);
+function countDown() {
+    currentTime--;
+    timeLeft.textContent = currentTime;
+
+    if (currentTime === 0) {
+        clearInterval(countDownTimerId);
+        clearInterval(timerId);
+        alert("Game over! You're final score is " + result)
+    }
+}
+
+let countDownTimerId = setInterval(countDown, 1000)
