@@ -5,7 +5,10 @@ const userStart = [250, 10];
 let currentPosition = userStart;
 
 const blockHeight = 20;
+
 const blockWidth = 100;
+
+const boardWidth = 600;
 
 //create Block
 class Block {
@@ -69,13 +72,17 @@ function drawUser() {
 function moveUser(e) {
     switch (e.key) {
         case "ArrowLeft":
-            currentPosition[0] -= 10
-            drawUser()
-            break;
+            if (currentPosition[0] > 0) {
+                currentPosition[0] -= 10
+                drawUser()
+                break;
+            }
         case "ArrowRight":
-            currentPosition[0] += 10
-            drawUser()
-            break;
+            if (currentPosition[0] < boardWidth - blockWidth) {
+                currentPosition[0] += 10
+                drawUser()
+                break;
+            }
     }
 }
 
