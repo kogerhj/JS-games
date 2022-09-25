@@ -112,7 +112,7 @@ function moveBall() {
     drawBall();
 }
 
-timerId = setInterval(moveBall, 30);
+timerId = setInterval(moveBall, 10);
 
 //change for collisions 
 function checkForCollisions() {
@@ -127,7 +127,7 @@ function checkForCollisions() {
     //check for game over
     if(ballCurrentPosition[1] <= 0) {
         clearInterval(timerId);
-        scoreDisplay.textContent('You lose');
+        scoreDisplay.textContent = 'You Lose';
         removeEventListener('keydown', moveUser);
     }
     
