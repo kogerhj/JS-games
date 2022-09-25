@@ -14,6 +14,8 @@ let ballStart = [290, 30];
 
 let ballCurrentPosition = ballStart;
 
+let timerId;
+
 //create Block
 class Block {
     constructor(xAxis, yAxis) {
@@ -112,4 +114,7 @@ function moveBall() {
     drawBall();
 }
 
-moveBall();
+timerId = setInterval(moveBall, 30);
+
+
+
