@@ -12,6 +12,12 @@ const boardWidth = 600;
 
 let ballStart = [290, 30];
 
+const ballDiameter = 20;
+
+let xDirection = 2;
+
+let yDirection = 2;
+
 let ballCurrentPosition = ballStart;
 
 let timerId;
@@ -109,12 +115,25 @@ drawBall();
 
 //move ball
 function moveBall() {
-    ballCurrentPosition[0] += 2;
-    ballCurrentPosition[1] += 2;
+    ballCurrentPosition[0] += xDirection;
+    ballCurrentPosition[1] += yDirection;
+    checkForCollisions();
     drawBall();
 }
 
 timerId = setInterval(moveBall, 30);
 
+//change for collisions 
+function checkForCollisions() {
+    //check for wall collisions
+    if(ballCurrentPosition[0] >= (boardWidth - ballDiameter)) {
+        changeDirection();
+    }
+}
 
-
+function changeDirection() {
+    if(xDirection === 2 && yDirection === 2) {
+        xDirection = -2;
+        return;
+    }
+}
