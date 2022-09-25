@@ -105,3 +105,11 @@ ball.classList.add('ball');
 grid.appendChild(ball);
 drawBall();
 
+//move ball
+function moveBall() {
+    ballCurrentPosition[0] += 2;
+    ballCurrentPosition[1] += 2;
+    drawBall();
+}
+
+moveBall();
