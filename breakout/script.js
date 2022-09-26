@@ -12,6 +12,7 @@ let xDirection = 2;
 let yDirection = 2;
 let ballCurrentPosition = ballStart;
 let timerId;
+let score = 0;
 
 //create Block
 class Block {
@@ -121,7 +122,11 @@ function checkForCollisions() {
         if ((ballCurrentPosition[0] > blocks[i].bottomLeft[0] && ballCurrentPosition[0] < blocks[i].bottomRight[0]) &&
             ((ballCurrentPosition[1] + ballDiameter) > blocks[i].bottomLeft[1] && ballCurrentPosition[1] < blocks[i].topLeft[1])) {
                 const allBlocks = Array.from(document.querySelectorAll('.block'))
-                console.log(allBlocks);
+                allBlocks[i].classList.remove('block')
+                blocks.splice(i, 1)
+                changeDirection()
+                score++
+                scoreDisplay.textContent = score
         }
     }
 
@@ -169,4 +174,4 @@ function changeDirection() {
     }
 }
 
-console.log(blocks[0].bottomLeft, blocks[0].bottomRight, blocks[0].bottomLeft, blocks[0].topLeft);
+
