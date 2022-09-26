@@ -6,7 +6,7 @@ const blockHeight = 20;
 const blockWidth = 100;
 const boardWidth = 600;
 const boardHeight = 300;
-let ballStart = [290, 35];
+let ballStart = [290, 30];
 const ballDiameter = 20;
 let xDirection = 2;
 let yDirection = 2;
@@ -113,7 +113,7 @@ function moveBall() {
     drawBall();
 }
 
-timerId = setInterval(moveBall, 20);
+timerId = setInterval(moveBall, 30);
 
 //change for collisions 
 function checkForCollisions() {
