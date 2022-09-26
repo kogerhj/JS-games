@@ -6,7 +6,7 @@ const blockHeight = 20;
 const blockWidth = 100;
 const boardWidth = 600;
 const boardHeight = 300;
-let ballStart = [290, 30];
+let ballStart = [290, 35];
 const ballDiameter = 20;
 let xDirection = 2;
 let yDirection = 2;
@@ -113,7 +113,7 @@ function moveBall() {
     drawBall();
 }
 
-timerId = setInterval(moveBall, 10);
+timerId = setInterval(moveBall, 20);
 
 //change for collisions 
 function checkForCollisions() {
@@ -121,12 +121,19 @@ function checkForCollisions() {
     for (let i = 0; i < blocks.length; i++) {
         if ((ballCurrentPosition[0] > blocks[i].bottomLeft[0] && ballCurrentPosition[0] < blocks[i].bottomRight[0]) &&
             ((ballCurrentPosition[1] + ballDiameter) > blocks[i].bottomLeft[1] && ballCurrentPosition[1] < blocks[i].topLeft[1])) {
-                const allBlocks = Array.from(document.querySelectorAll('.block'))
-                allBlocks[i].classList.remove('block')
-                blocks.splice(i, 1)
-                changeDirection()
-                score++
-                scoreDisplay.textContent = score
+            const allBlocks = Array.from(document.querySelectorAll('.block'))
+            allBlocks[i].classList.remove('block')
+            blocks.splice(i, 1)
+            changeDirection()
+            score++
+            scoreDisplay.textContent = score
+
+            //check for win
+            if (blocks.length === 0) {
+                scoreDisplay.textContent = 'You win!'
+                clearInterval(timerId)
+                removeEventListener('keydown', moveUser)
+            }
         }
     }
 
@@ -143,6 +150,12 @@ function checkForCollisions() {
         clearInterval(timerId);
         scoreDisplay.textContent = 'You Lose';
         removeEventListener('keydown', moveUser);
+    }
+
+    //check for user collisions
+    if ((ballCurrentPosition[0] > currentPosition[0] && ballCurrentPosition[0] < currentPosition[0] + blockWidth) &&
+        ballCurrentPosition[1] > currentPosition[1] && ballCurrentPosition[1] < currentPosition[1] + blockHeight) {
+        changeDirection()
     }
 
 }
