@@ -8,7 +8,9 @@ const gridWidth = 9;
 
 
 function moveFrog(e) {
-console.log(e)
+    //remove frog class from previous square
+    squares[currentIndex].classList.remove('frog')
+
     switch (e.key) {
         case "ArrowLeft": currentIndex--
             break
@@ -19,7 +21,7 @@ console.log(e)
         case "ArrowDown": currentIndex += gridWidth
             break
     }
-
+    //add frog class to new square
     squares[currentIndex].classList.add('frog')
 }
 
