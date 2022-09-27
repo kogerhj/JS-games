@@ -3,17 +3,20 @@ const result = document.querySelector('#result');
 const startPauseButton = document.querySelector('#start-pause-button');
 const squares = document.querySelectorAll('.grid div');
 let currentIndex = 76;
+const gridWidth = 9;
+
+
 
 function moveFrog(e) {
-
+console.log(e)
     switch (e.key) {
-        case "ArrowLeft": console.log('move left')
+        case "ArrowLeft": currentIndex--
             break
-        case "ArrowRight": console.log('move right')
+        case "ArrowRight": currentIndex++
             break
-        case "ArrowUp": console.log('move up')
+        case "ArrowUp": currentIndex -= gridWidth
             break
-        case "ArrowDown": console.log('move down')
+        case "ArrowDown": currentIndex += gridWidth
             break
     }
 
@@ -21,3 +24,4 @@ function moveFrog(e) {
 }
 
 document.addEventListener('keyup', moveFrog)
+
