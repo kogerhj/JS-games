@@ -12,13 +12,17 @@ function moveFrog(e) {
     squares[currentIndex].classList.remove('frog')
 
     switch (e.key) {
-        case "ArrowLeft": currentIndex--
+        case "ArrowLeft":
+            if (currentIndex % gridWidth != 0) currentIndex--
             break
-        case "ArrowRight": currentIndex++
+        case "ArrowRight":
+            if (currentIndex % gridWidth < gridWidth - 1) currentIndex++
             break
-        case "ArrowUp": currentIndex -= gridWidth
+        case "ArrowUp":
+            if (currentIndex - gridWidth >= 0) currentIndex -= gridWidth
             break
-        case "ArrowDown": currentIndex += gridWidth
+        case "ArrowDown":
+            if (currentIndex + gridWidth < gridWidth * gridWidth) currentIndex += gridWidth
             break
     }
     //add frog class to new square
