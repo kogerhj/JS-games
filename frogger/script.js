@@ -5,6 +5,7 @@ const squares = document.querySelectorAll('.grid div');
 let currentIndex = 76;
 const gridWidth = 9;
 const logsLeft = document.querySelectorAll('.logs-left')
+const logsRight = document.querySelectorAll('.logs-right')
 
 
 
@@ -63,4 +64,5 @@ function moveLogLeft(logLeft) {
 }
 
 setInterval(autoMoveLogs, 1000)
+
 
