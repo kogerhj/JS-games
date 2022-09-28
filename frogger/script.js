@@ -133,7 +133,10 @@ function moveCarsLeft(carLeft) {
 
 //check for failing game
 function checkForLose() {
-    if (squares[currentIndex].classList.contains('c1')) {
+    if (
+        squares[currentIndex].classList.contains('c1') ||
+        squares[currentIndex].classList.contains('l4') ||
+        squares[currentIndex].classList.contains('l5')) {
         result.textContent = "You Lose!"
         clearInterval(timerId)
         squares[currentIndex].classList.remove('frog')
