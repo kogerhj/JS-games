@@ -34,7 +34,6 @@ function moveFrog(e) {
     squares[currentIndex].classList.add('frog')
 }
 
-document.addEventListener('keyup', moveFrog)
 
 function moveElements() {
     currentTime--
@@ -158,6 +157,17 @@ function checkForWin() {
     }
 }
 
-timerId = setInterval(moveElements, 1000)
+function startGame() {
+    if(timerId) {
+        clearInterval(timerId)
+        timerId = null
+        document.removeEventListener('keyup', moveFrog)
+    } else {
+        timerId = setInterval(moveElements, 1000)
+        document.addEventListener('keyup', moveFrog)
+    }
+}
+
+startPauseButton.addEventListener('click', startGame)
 
 
