@@ -10,6 +10,7 @@ const carsLeft = document.querySelectorAll('.car-left');
 const carsRight = document.querySelectorAll('.car-right');
 let timerId;
 let currentTime = 20;
+let outcomeTimerId;
 
 
 function moveFrog(e) {
@@ -44,6 +45,11 @@ function moveElements() {
     carsRight.forEach(carRight => moveCarsRight(carRight))
     checkForLose()
     checkForWin()
+}
+
+function checkOutcomes() {
+    checkForWin()
+    checkForLose()
 }
 
 //move logs to the left
@@ -143,6 +149,7 @@ function checkForLose() {
         currentTime === 0) {
         result.textContent = "You Lose!"
         clearInterval(timerId)
+        clearInterval(outcomeTimerId)
         squares[currentIndex].classList.remove('frog')
         document.removeEventListener('keyup', moveFrog)
 
@@ -152,6 +159,7 @@ function checkForLose() {
 function checkForWin() {
     if (squares[currentIndex].classList.contains('ending-block')) {
         clearInterval(timerId)
+        clearInterval(outcomeTimerId)
         result.textContent = "You win!"
         document.removeEventListener('keyup', moveFrog)
     }
@@ -160,10 +168,12 @@ function checkForWin() {
 function startGame() {
     if(timerId) {
         clearInterval(timerId)
+        outcomeTimerId = null
         timerId = null
         document.removeEventListener('keyup', moveFrog)
     } else {
         timerId = setInterval(moveElements, 1000)
+        outcomeTimerId = setInterval(checkOutcomes, 50)
         document.addEventListener('keyup', moveFrog)
     }
 }
