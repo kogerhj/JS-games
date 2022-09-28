@@ -8,6 +8,7 @@ const logsLeft = document.querySelectorAll('.logs-left');
 const logsRight = document.querySelectorAll('.logs-right');
 const carsLeft = document.querySelectorAll('.car-left');
 const carsRight = document.querySelectorAll('.car-right');
+let timerId;
 
 
 function moveFrog(e) {
@@ -39,6 +40,7 @@ function moveElements() {
     logsRight.forEach(logRight => moveLogRight(logRight))
     carsLeft.forEach(carLeft => moveCarsLeft(carLeft))
     carsRight.forEach(carRight => moveCarsRight(carRight))
+    checkForLose()
 }
 
 //move logs to the left
@@ -129,6 +131,17 @@ function moveCarsLeft(carLeft) {
     }
 }
 
-setInterval(moveElements, 1000)
+//check for failing game
+function checkForLose() {
+    if (squares[currentIndex].classList.contains('c1')) {
+        result.textContent = "You Lose!"
+        clearInterval(timerId)
+        squares[currentIndex].classList.remove('frog')
+        document.removeEventListener('keyup', moveFrog)
+
+    }
+}
+
+timerId = setInterval(moveElements, 1000)
 
 
