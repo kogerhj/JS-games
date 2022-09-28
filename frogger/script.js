@@ -9,6 +9,7 @@ const logsRight = document.querySelectorAll('.logs-right');
 const carsLeft = document.querySelectorAll('.car-left');
 const carsRight = document.querySelectorAll('.car-right');
 let timerId;
+let currentTime = 20;
 
 
 function moveFrog(e) {
@@ -36,6 +37,8 @@ function moveFrog(e) {
 document.addEventListener('keyup', moveFrog)
 
 function moveElements() {
+    currentTime--
+    timeLeft.textContent = currentTime
     logsLeft.forEach(logLeft => moveLogLeft(logLeft))
     logsRight.forEach(logRight => moveLogRight(logRight))
     carsLeft.forEach(carLeft => moveCarsLeft(carLeft))
@@ -137,7 +140,8 @@ function checkForLose() {
     if (
         squares[currentIndex].classList.contains('c1') ||
         squares[currentIndex].classList.contains('l4') ||
-        squares[currentIndex].classList.contains('l5')) {
+        squares[currentIndex].classList.contains('l5') ||
+        currentTime === 0) {
         result.textContent = "You Lose!"
         clearInterval(timerId)
         squares[currentIndex].classList.remove('frog')
