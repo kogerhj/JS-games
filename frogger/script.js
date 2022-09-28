@@ -41,6 +41,7 @@ function moveElements() {
     carsLeft.forEach(carLeft => moveCarsLeft(carLeft))
     carsRight.forEach(carRight => moveCarsRight(carRight))
     checkForLose()
+    checkForWin()
 }
 
 //move logs to the left
@@ -142,6 +143,14 @@ function checkForLose() {
         squares[currentIndex].classList.remove('frog')
         document.removeEventListener('keyup', moveFrog)
 
+    }
+}
+
+function checkForWin() {
+    if (squares[currentIndex].classList.contains('ending-block')) {
+        clearInterval(timerId)
+        result.textContent = "You win!"
+        document.removeEventListener('keyup', moveFrog)
     }
 }
 
