@@ -32,9 +32,6 @@
     background-color: lightgray;
 } */
 
-.frog {
-    background-color: green;
-}
 
 .l1, .l2, .l3 {
     background: brown;
@@ -50,4 +47,8 @@
 
 .c2, .c3 {
     background-color: lightgray;
+}
+
+.frog {
+    background-color: green;
 }
