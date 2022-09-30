@@ -9,7 +9,7 @@ const logsRight = document.querySelectorAll('.logs-right');
 const carsLeft = document.querySelectorAll('.car-left');
 const carsRight = document.querySelectorAll('.car-right');
 let timerId;
-let currentTime = 20;
+let currentTime = 40;
 let outcomeTimerId;
 
 

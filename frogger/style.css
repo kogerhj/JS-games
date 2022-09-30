@@ -3,6 +3,13 @@
     box-sizing: border-box;
 } */
 
+.container {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
 .grid {
     border: 1px solid black;
     height: 180px;
